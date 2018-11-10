@@ -1,0 +1,22 @@
+<div class="sideFilter">
+  <div (click)="filter(0)">
+    모두
+  </div>
+  <div (click)="filter('광고서비스 디자인')">
+      광고서비스 디자인
+  </div>
+  <div (click)="filter('재능')">
+    재능
+  </div>
+</div>
+<div class="main">
+  <div *ngFor="let data of datas| myfilter:filterargs">
+    <div (click)="next()" class="frame" >
+      <img [src]="data.img" class="frameImg">
+      <div>{{data.name}}</div>
+      <div>{{data.title}}</div>
+      <div>{{data.confirm}}</div>
+      <div>{{data.kind}}</div>
+    </div>
+  </div>   
+</div>

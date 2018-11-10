@@ -1,0 +1,25 @@
+.frame{
+    width: 300px;
+    float: left;
+    margin: 20px;
+}
+.frameImg{
+    width: 300px;
+}
+.main{
+    margin-left: 250px;
+}
+
+.show{
+    opacity: 1 !important;
+}
+.step{
+    opacity: 0;
+    transition: .5s ease-in-out all;
+}
+.sideFilter{
+    position: fixed;
+    margin-top: 50px;
+    margin-left: 120px;
+
+}
