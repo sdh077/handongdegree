@@ -1,32 +1,232 @@
-.main{
-    /* width: calc(100% - 200px); */
+.full{
+    min-height: 100%;
     width: 100%;
-    height: 100%;
-    float: right;
-}
-.nav{
-    max-height: 400px;
-    width: 200px;
-    float: left;
+}.logo{
     position: fixed;
-    overflow: hidden;
-    top: 50px;
-    left: 50px;
+    /* left:  */
+    width: 173.74px;
+    height: 35.62px;
+    left: 29px;
+    top: 30.4px;
 }
+.rightlogo{
+    position: fixed;
+    /* left:  */
+    width: 38.1px;
+    height:24.2px;
+    right: 26.6px;
+    top: 31.8px;
+}
+.copyright{
+    position: fixed;
+    bottom: 5%;
+    left: calc(50% - 245px);
+    width:489.62px;
+    height:9.78px;
+}
+.hr{
+    color: white;
+    display: block;
+    border-top: 0.1pt solid white;
+    padding: 0;
+    position: fixed;
+    top :70px;
+    width:calc(100% - 58px);
+    left: 29px;
+}
+.list{
+    position: fixed;
+    top: 110px;
+    left: 29px;
+}
+.imgFrame{
+    position: fixed;
+    left: 248px;
+    top: 110px;
+    /*width:calc(100% - 496px);*/
+}
+.mainImg{
+    position: fixed;
+    cursor: url('/assets/imgs/cursor2.png'), wait !important;
+    width:calc(100% - 496px);
 
-.container{
-    height: 100%;
-    width: 100%;
-    /* height: 100vh; */
-    /* width: 100vw; */
-    z-index: 3;
 }
 
 .font{
-    font-size: 20pt;
-    z-index: 3;
-    margin: 0;
+    /*color: white;*/
+    font-size: 25pt;
+    margin-bottom:30px;
+}
+.font:hover{
+    border-bottom:0.2px solid white;
 }
 .active{
-    text-decoration: underline;
+    border-bottom: 0.2px solid white;
+}
+.search_form{
+    display: none;
+}
+.search{
+    border:none;
+}
+.year{
+    display: none;
+}
+td{
+    padding:0;
+}
+.footer{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:70px;
+}
+.search_frame {
+    float: right;
+    border-bottom: 1px solid;
+    position: absolute;
+    top: 88%;
+    width: 215px;
+}
+.search_formSmall{
+    position: absolute;
+    right: 15px;
+    top: 25px;
+    width:175px;
+    border-bottom: 1px solid black;
+
+}
+.modal{
+    display: none;
+}
+.search_formSmall{
+    display: none;
+}
+@media screen and (max-width: 700px) {
+    .search_formSmall{
+        display: block;
+    }
+    .rightlogo{
+        left:5%;
+        width:28px;
+        height:auto;
+        top:0;
+        position: sticky;
+    }
+    .logo{
+        left:15%;
+        top:0;
+        width:90px;
+        height:auto;
+        position: sticky;
+        margin-left:9px;
+    }
+    .logoFrame{
+        margin-top:20px;
+    }
+    .search_form{
+        display: none;
+        float: right;
+    }
+    .search_frame{
+        float: right;
+        border-bottom:1px solid;
+        margin-right:15px;
+    }
+    .imgFrame{
+        width:100%;
+        position: relative;
+        left:0;
+    }
+    .mainImg{
+        position: relative;
+        left:0;
+        width:100%;
+    }
+    .copyright{
+        width:75%;
+        height:auto;
+        position: initial;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+    }
+    .year{
+        display: initial;
+        width:74px;
+        position: absolute;
+        bottom: 100px;
+        left: calc( 50% - 37px);
+
+    }
+    .list{
+        display: none;
+    }
+    .yearImg{
+        width:74px;
+    }
+    .footer{
+        align-content: center;
+        border-top: 1px solid;
+        height:30px;
+    }
+    .modal{
+        display: block;
+        background-color: black;
+        opacity: 0.5;
+        width: 100%;
+        height:100%;
+        position: fixed;
+        z-index: 555;
+    }
+    .modalBox{
+        z-index: 666;
+        width: 320px;
+        height:480px;
+        position: fixed;
+        background-color: white;
+        margin-left: calc(50% - 160px);
+        margin-top: 50px;
+    }
+
+    .modalHeader{
+        width:322px;
+        height:31px;
+        float: left;
+    }
+    .modalCancel{
+        float: left;
+        margin-left: 15px;
+        margin-top: 15px;
+    }
+    .modalCancelImg{
+        width:15px;
+    }
+    .modalCancelImg{
+        width:15px;
+    }
+    .modalTitle{
+        margin-top: 15px;
+
+    }
+    .modalTitleImg{
+        width:52px;
+    }
+    .modalBody{
+        margin-top: 55px;
+        position: relative;
+    }
+    .yearCon{
+        width: 33%;
+        float: left;
+        font-size:30px;
+        text-align: center;
+        margin-top: 57px;
+        color: gray;
+    }
+    .activeLow{
+        color: black;
+    }
+    
 }

@@ -1,3 +1,133 @@
-<p>
-  detail works!
-</p>
+
+<div class="sideFilter">
+    <div>
+        <div class="logoFrame">
+            <img src="assets/theme/white/main_logo.png" class="logo" routerLink="/">
+        </div>
+        <div><img src="assets/theme/white/right_logo.png" class="rightlogo"></div>
+        <div class="year">18</div>
+        <div class="filter" *ngFor="let one of category;let indexing = index" (click)="go(one.item_category_no);active = one.item;load(one.item_category_no)">
+            <u style="border-bottom:1px solid #000;text-decoration: none;" *ngIf="active == one.item_category_no">
+                {{one.content}}<br style="line-height:20px;">
+                {{one.content_en}}
+            </u>
+            <div *ngIf="active != one.item_category_no">
+                <u class="ooo">
+                    {{one.content}}<br style="line-height:20px;">
+                    {{one.content_en}}
+                </u>
+            </div>
+        </div>
+        <form>
+            <div class="search_frame">
+                <img src="/assets/imgs/degree_search.png" style="width: 15px;vertical-align: baseline;">
+                <input [(ngModel)]="search" name="search" class="search">
+                <img src="assets/imgs/degree_arrow.png" (click)="searchItem()" style="width: 17px;">
+            </div>
+        </form>
+    </div>
+</div>
+<div class="mainFrame">
+    <div class="mainCont">
+        <div class="frame">
+            <div class="detailHeader">
+                <div class="filterTitle">
+                    <div *ngFor="let titem of category">
+                        <div *ngIf="active == titem.item_category_no">
+                            {{titem.content}}
+                        </div>
+                        <div *ngIf="active == titem.item_category_no">
+                            {{titem.content_en}}
+                        </div>
+                    </div>
+                </div>
+                <div class="context we120">
+                    <div style="font-family: we140;margin-bottom: 10px;">
+                        {{datas.title}}
+                    </div>
+                    <div style="color: gray;" >
+                        {{datas.title_en}}
+                    </div>
+                </div>
+            </div>
+            <div class="middle">
+                <div class="middleDesign" *ngFor="let writer of designers">
+                    <div style="width: 100%;">
+                        <div style="margin-bottom: 17px;color: gray;font-size: 9px;">
+                            <div style="width: 49%;float:left;line-height: 16px;margin-bottom: 20px;">
+                                <div>
+                                    {{writer.name}}
+                                </div>
+                                <div style="margin-bottom: 7px;">
+                                    {{writer.name_en}}
+                                </div>
+                                <div>
+                                    {{writer.school}}
+                                </div>
+                                <div>
+                                    {{writer.tel}}
+                                </div>
+                                <div>
+                                    {{writer.mail}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="datas.video==null"><img [src]="link+'/img/m-'+id+'.png'" class="detailImg"></div>
+                <div *ngIf="datas.video!=null">
+                        <iframe [src]="datas.video | safe" class="detailImg"  width="640" height="360" ></iframe>
+                </div>
+                <div style="width: 90%;margin: auto;" class="middleDesign">
+                    <div style="line-height: 22px;margin-top: 20px;margin-bottom: 20px;" >
+                        {{datas.content}}
+                    </div>
+                    <div style="line-height: 22px;">
+                        {{datas.content_en}}
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="rightframe">
+                    <div class="we120">
+                        <div class="designerBox" *ngFor="let writer of designers">
+                            <div style="margin-bottom: 4px;">
+                                <div>
+                                    {{writer.name}}
+                                </div>
+                                <div>
+                                    {{writer.name_en}}
+                                </div>
+                            </div>
+                            <div style="line-height: 20px;margin-bottom: 17px;font-size: 12px;">
+                                <div>
+                                    {{writer.school}}
+                                </div>
+                                <div>
+                                    {{writer.tel}}
+                                </div>
+                                <div>
+                                    {{writer.mail}}
+                                </div>
+                            </div>
+                        </div>
+                        <div style="clear:both">
+
+                        </div>
+                    </div>
+                    <div style="width: 100%;min-height: 30vh;margin-top: 40px;">
+                        <div style="margin-bottom: 60px;line-height: 22px;" >
+                            {{datas.content}}
+                        </div>
+                        <div style="line-height: 22px;">
+                            {{datas.content_en}}
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>

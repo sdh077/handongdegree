@@ -1,0 +1,29 @@
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">연도</th>
+      <th scope="col">전시명</th>
+      <th scope="col">사용여부</th>
+      <th scope="col">수정</th>
+      <th scope="col">작품보기</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of datas">
+      <td>{{data.year}}</td>
+      <td>{{data.title}}</td>
+      <td *ngIf="data.use_yn==0" class="text-danger">X</td>
+      <td *ngIf="data.use_yn==1" class="text-primary">O</td>
+      <td  (click)="edit(data.degree_no)"><button type="button" class="btn btn-primary">수정</button></td>
+      <td  (click)="item(data.degree_no)"><button type="button" class="btn btn-primary">작품</button></td>
+    </tr>
+    <tr>
+      <td><input type="text" [(ngModel)]="input.year"></td>
+      <td><input type="text"[(ngModel)]="input.title"></td>
+      <td><button type="button" class="btn btn-danger" (click)="add()">추가</button></td>
+    </tr>
+  </tbody>
+</table>
+

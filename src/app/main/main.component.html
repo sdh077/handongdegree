@@ -1,15 +1,52 @@
 
-<div class="container">
-  <div class="nav">
-      <div *ngFor="let data of datas">
-        <div (click)="next(data.no)" class="font">
-          <div [ngClass]="{active:data.no==no}">
+<div class="modal" *ngIf="modalView == 1"  (click)="modalView=0">
+
+</div>
+<div class="modalBox" *ngIf="modalView == 1">
+    <div class="modalHeader">
+        <div class="modalCancel" (click)="modalView=0">
+            <img src="assets/imgs/small_cancel.png" class="modalCancelImg">
+        </div>
+        <div class="modalTitle" align="center">
+            <img src="assets/imgs/small_years.png" class="modalTitleImg">
+        </div>
+    </div>
+    <div class="modalBody">
+        <div *ngFor="let data of datas" class="yearCon">
+            <div (click)="choice(data);modalView=0" [ngClass]="{activeLow:data.degree_no==choose.degree_no}">
+                {{data.year}}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="">
+    <div class="logoFrame">
+        <img src="assets/theme/white/right_logo.png" class="rightlogo">
+        <img src="assets/theme/white/main_logo.png" class="logo">
+
+
+    </div>
+  <hr class="hr">
+  <div class="list">
+    <div *ngFor="let data of datas">
+        <div (click)="choice(data)" class="font">
+          <div [ngClass]="{active:data.degree_no==choose.degree_no}">
             {{data.year}}
           </div>
-      </div>  
-    </div>      
+        </div>
+      </div>
   </div>
-  <div class="main">
-    <router-outlet></router-outlet>
+  <div class="imgFrame">
+      <div align="center" valign="center" (click)="next(choose.degree_no)">
+          <img [src]="link+'/img/'+choose.degree_no+'.png'" class="mainImg">
+      </div>
   </div>
+    <div class="year">
+        <img src="assets/imgs/years.png" (click)="modalView=1" class="yearImg">
+    </div>
+
+</div>
+
+<div class="footer">
+    <img src="assets/theme/white/copy_right.png" class="copyright">
 </div>

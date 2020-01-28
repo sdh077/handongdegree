@@ -1,0 +1,63 @@
+<div *ngIf="data!=null">
+  <form>
+    <div class="form-group">
+      <label for="formGroupExampleInput">연도</label>
+      <input type="text" class="form-control" name="year" [(ngModel)]="data.year">
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput2">전시명</label>
+      <input type="text" class="form-control" name="title" [(ngModel)]="data.title">
+    </div>
+    <label for="formGroupExampleInput" >사용여부</label>
+    <select [(ngModel)]="data.use_yn" name="use_yn">
+        <option [ngValue]="0" [attr.selected]="data.use_yn==0 ? true : null">미사용</option>
+        <option [ngValue]="1" [attr.selected]="data.use_yn==1 ? true : null">사용</option>
+    </select>
+    <label for="formGroupExampleInput">테마</label>
+    <select [(ngModel)]="data.theme" name="theme">
+        <option [ngValue]="0" [attr.selected]="data.theme==0 ? true : null">화이트</option>
+        <option [ngValue]="1" [attr.selected]="data.theme==1 ? true : null">블랙</option>
+    </select>
+    <button class="btn btn-primary" type="submit" (click)="update()">수정</button>
+  </form>
+  <br>
+  <table>
+    <thead>
+      <tr>
+        <td>이름</td>
+        <td>영어 이름</td>
+        <td>순서</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let one of category">
+        <td>
+          <input [(ngModel)]="one.content" class="form-control" name="n">
+        </td>
+        <td>
+          <input [(ngModel)]="one.content_en" class="form-control" name="d">
+        </td>
+        <td>
+          <input [(ngModel)]="one.ord" class="form-control" name="c">
+        </td>
+        <td>
+          <button class="btn btn-danger" (click)="updateCategory(one)">수정</button>
+        </td>
+      </tr>
+      <tr>
+        <td><input [(ngModel)]="body.content" class="form-control" name="c"></td>
+        <td><input [(ngModel)]="body.content_en" class="form-control" name="c"></td>
+        <td><input [(ngModel)]="body.ord" class="form-control" name="c"></td>
+        <button class="btn btn-warning" (click)="add()">추가</button>
+      </tr>
+    </tbody>
+  </table>
+  <input type="file" class="form-control" name="single" ng2FileSelect [uploader]="uploader_title"/>
+
+  <div *ngFor="let itemone of uploader_title.queue">
+    <button type="button" class="btn btn-success btn-xs"
+            (click)="itemone.upload();" [disabled]="itemone.isReady || itemone.isUploading || itemone.isSuccess">
+      <span class="glyphicon glyphicon-upload"></span> Upload
+    </button>
+  </div>
+</div>

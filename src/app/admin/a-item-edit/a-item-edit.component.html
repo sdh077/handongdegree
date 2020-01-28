@@ -1,0 +1,95 @@
+<div *ngIf="data!=null" style="overflow: scroll;height: 90vh;width: 100%;">
+  <form>
+    <div class="form-group">
+      <label for="formGroupExampleInput">작품명</label>
+      <input type="text" class="form-control" name="title" [(ngModel)]="data.title" id="formGroupExampleInput">
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput2">작품 영문명</label>
+      <input type="text" class="form-control" name="title_en" [(ngModel)]="data.title_en" id="formGroupExampleInput2">
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput3">설명</label>
+      <input type="text" class="form-control" name="content" [(ngModel)]="data.content" id="formGroupExampleInput3">
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput4">설명 영문</label>
+      <input type="text" class="form-control" name="content_en" [(ngModel)]="data.content_en" id="formGroupExampleInput4">
+    </div>
+    <div class="form-group">
+      <label for="video">video</label>
+      <input type="text" class="form-control" name="video" [(ngModel)]="data.video" id="video">
+    </div>
+    <button (click)="edit()">수정</button>
+  </form>
+  메인 이미지
+  <input type="file" class="form-control" name="single" ng2FileSelect [uploader]="uploader_main"/>
+
+  <div *ngFor="let itemone of uploader_main.queue">
+    <button type="button" class="btn btn-success btn-xs"
+            (click)="itemone.upload();" [disabled]="itemone.isReady || itemone.isUploading || itemone.isSuccess">
+      <span class="glyphicon glyphicon-upload"></span> Upload
+    </button>
+  </div>
+  썸네일 이미
+  <input type="file" class="form-control" name="single" ng2FileSelect [uploader]="uploader_thumb"/>
+
+  <div *ngFor="let itemone of uploader_thumb.queue">
+    <button type="button" class="btn btn-success btn-xs"
+            (click)="itemone.upload();" [disabled]="itemone.isReady || itemone.isUploading || itemone.isSuccess">
+      <span class="glyphicon glyphicon-upload"></span> Upload
+    </button>
+  </div>
+  <table class="table">
+    <thead>
+    <td>이름</td>
+    <td>영어 이름</td>
+    <td>메일</td>
+    <td>학부</td>
+    <td>수정</td>
+    <td>삭제</td>
+    </thead>
+    <tbody>
+    <tr *ngFor="let designer of designers">
+      <td>
+        <input [(ngModel)]="designer.name">
+      </td>
+      <td>
+        <input [(ngModel)]="designer.name_en" width="30px">
+      </td>
+      <td>
+        <input [(ngModel)]="designer.mail">
+      </td>
+      <td>
+        <input [(ngModel)]="designer.school">
+      </td>
+      <td>
+        <button type="button" class="btn btn-primary">수정</button>
+      </td>
+      <td>
+        <button type="button" class="btn btn-danger">삭제</button>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <input [(ngModel)]="designer_add.name">
+      </td>
+      <td>
+        <input [(ngModel)]="designer_add.name_en" width="30px">
+      </td>
+      <td>
+        <input [(ngModel)]="designer_add.mail">
+      </td>
+      <td>
+        <input [(ngModel)]="designer_add.school">
+      </td>
+      <td>
+        <button type="button" class="btn btn-primary" (click)="add()">추가</button>
+      </td>
+      <td>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>

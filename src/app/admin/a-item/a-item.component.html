@@ -1,0 +1,32 @@
+<button (click)="add(id)">add</button>
+<div id="table">
+  <table>
+    <thead>
+      <td>
+        제목
+      </td>
+      <td>영어제목</td>
+      <td>수정</td>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of datas">
+        <td>{{data.title}}</td>
+        <td>{{data.title_en}}</td>
+        <td><a [routerLink]="['/admin','item-edit',data.item_no]" class="btn btn-primary">edit</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- <div style="overflow-x: scroll;height: 98vh;">
+  <div class="card-columns">
+    <div class="card" style="width: 18rem;" *ngFor="let data of datas">
+      <img class="card-img-top" [src]="this.link+'/'+data.thumbnail" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{data.title}} {{data.title_en}}</h5>
+        <a [routerLink]="['/admin','item-edit',data.item_no]" class="btn btn-primary">edit</a>
+      </div>
+    </div>
+  </div>
+
+</div> -->

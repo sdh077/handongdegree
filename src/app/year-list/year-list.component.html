@@ -1,0 +1,39 @@
+
+<div class="logoFrameSmall">
+  <div>
+    <img src="assets/imgs/tab.png">
+  </div>
+  <img src="assets/theme/white/right_logo.png" class="rightlogo">
+  <img src="assets/theme/white/main_logo.png" class="logo">
+  <form class="search_formSmall">
+    <div class="search_frameSmall">
+      <img src="/assets/imgs/degree_search.png" style="width: 15px;vertical-align: baseline;">
+      <input [(ngModel)]="search" name="search" class="search">
+      <img src="assets/imgs/degree_arrow.png" (click)="searchItem()" style="width: 17px;">
+    </div>
+  </form>
+</div>
+<div class="filterTitle">
+  <div>
+    그래픽디자인
+  </div>
+  <div>
+    Graphic Design
+  </div>
+</div>
+<div class="dataScroll">
+  <div *ngFor="let data of datas| myfilter:filterargs;let index=index"  [@enterAnimation]>
+    <div (click)="next(data.item_no)" class="frame">
+      <img [src]="link+'/img/t-'+data.item_no+'.png'" class="img"
+           (mouseover)="hoveredIndex=index;">
+      <div *ngIf="hoveredIndex== index" class="op"
+           (mouseout) = "hoveredIndex = -1;">
+        <!--<div>{{data.title}}</div>-->
+        <div class="title">창조된 모습 그대로의 아름다움을 주목하는 디퓨저 브랜드 '미프랑'</div>
+        <div class="name">
+          강다솔 김민진 이진실 장윤지
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

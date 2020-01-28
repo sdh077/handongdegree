@@ -1,0 +1,49 @@
+<!-- <input type="file" class="form-control" name="single" ng2FileSelect [uploader]="uploader1"/>    
+
+<div *ngFor="let itemone of uploader1.queue">
+  <button type="button" class="btn btn-success btn-xs"
+    (click)="itemone.upload();" [disabled]="itemone.isReady || itemone.isUploading || itemone.isSuccess">
+    <span class="glyphicon glyphicon-upload"></span> Upload
+  </button>
+</div> -->
+<form>
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">연도</label>
+    <div class="col-sm-10" *ngIf="degrees!==null">
+      {{degrees.title}}
+    </div>
+  </div>
+  <div class="form-group row">
+      <label for="category" class="col-sm-2 col-form-label">연도 설정</label>
+    <div class="col-sm-10">
+      <select class="custom-select" id="category" [(ngModel)]="body.category_no" name="nowowow">
+          <option *ngFor="let category of categorys"  [(ngValue)]="category.item_category_no">{{category.content}}</option>
+        </select>
+      </div>
+  </div>
+  <div class="form-group row">
+    <label for="title" class="col-sm-2 col-form-label">제목</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="title" [(ngModel)]="body.title" name="title">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="title_en" class="col-sm-2 col-form-label">제목 영어 </label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="title_en" [(ngModel)]="body.title_en" name="title_en">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="content" class="col-sm-2 col-form-label">설명</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="content" [(ngModel)]="body.content" name="content">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="content_en" class="col-sm-2 col-form-label">영어 설명</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="content_en" [(ngModel)]="body.content_en" name="content_en">
+    </div>
+  </div>
+  <button type="button" (click)="add()">추가</button>
+</form>

@@ -1,0 +1,169 @@
+.frame{
+    width: 295px;
+    height: 230px;
+    float: left;
+    margin: 11.5px;
+    overflow: hidden;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.frameImg{
+    /* width: 405px;
+    height: 315px; */
+}
+.mainFrame{
+    min-height: 100%;
+}
+.logo{
+    position: fixed;
+    /* left:  */
+    width: 173.74px;
+    height: 35.62px;
+    left: 29px;
+    top: 30.4px;
+}
+.rightlogo{
+    position: fixed;
+    /* left:  */
+    width: 38.1px;
+    height:24.2px;
+    right: 26.6px;
+    top: 31.8px;
+}
+.mainCont{
+    margin-left: 355px;
+    /*margin-right: 14px;*/
+    width: calc(100% - 280px);
+    float: right;
+    height: 100%;
+    /*left: 355px;*/
+    bottom: 10px;
+    top: 0px;
+    right: 14px;
+    /* position: fixed; */
+    overflow: hidden;
+
+}
+.img{
+    width: inherit;
+    height: inherit;
+    position: absolute;
+}
+.op{
+    color: white;
+    background-color: rgba(0,0,0,0.7);
+    position:relative;
+    width: inherit;
+    height: inherit;
+}
+.filterTitle{
+    margin-top: 30px;
+    height: 54px;
+    margin-left: 32px;
+    position: relative;
+}
+.search{
+    border: none;
+    width:170px;
+    height: 22px;
+    font-size: 14px;
+}
+.search_frame{
+    float: right;
+    border-bottom:1px solid;
+    position: absolute;
+    top:88%;
+    width: 215px;
+}
+.show{
+    opacity: 1 !important;
+}
+.step{
+    opacity: 0;
+    transition: .5s ease-in-out all;
+}
+.sideFilter{
+    /* position: fixed; */
+    margin-top: 31px;
+    margin-left: 29px;
+    width: 250px;
+    float: left;
+    position: fixed;
+    height:100%;
+    border-right: 1px solid black;
+
+
+}
+.logoFrame{
+    margin-bottom: 62px;
+}
+
+.detailImg{
+    width: 835px;
+}
+.dataScroll{
+    position: relative;
+    /* height: calc(100% - 84px);  */
+    /* height: 100%; */
+    margin-left:20px;
+    overflow: auto;
+    /* max-width: 800px; */
+    max-height: 600px;
+    /* padding-top: 84px; */
+    /* overflow-y: scroll !important;   */
+
+}
+.filter{
+    font-size: 10pt;
+    margin-bottom: 22px;
+    margin-top: 10px;
+}
+.year{
+    font-size:20pt;
+}
+.name{
+    position: absolute;
+    bottom: 3px;
+    left: 10px;
+}
+.title{
+    font-family: we120;
+    position: absolute;
+    top: 3px;
+    left: 10px;
+    right: 10px;
+    line-height: 22px;
+}
+.ooo:hover{
+    border-bottom:1px solid #000;text-decoration: none;
+}
+.ooo{
+    text-decoration: none;
+}
+@media screen and (max-width: 800px) {
+    .sideFilter  {
+        width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+        margin: 0;
+        position: absolute;
+    }
+    .mainCont{
+        margin: 0;
+        border:none;
+        padding: 0;
+        width: 100%;
+    }
+    .frame{
+        width: 95%;
+        margin: 2.5%;
+    }
+
+    .detailImg{
+        width: 95%;
+        margin-left: 2.5%;
+    }
+    .filterTitle{
+        margin-top: 100px;
+    }
+
+}

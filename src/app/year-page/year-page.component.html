@@ -1,22 +1,101 @@
-<div class="sideFilter">
-  <div (click)="filter(0)">
-    모두
+<!-- <div class="backBtn" (click)="back()"> -->
+    
+    <!-- <img src=""> -->
+<!-- </div> -->
+<div class="sideBar" *ngIf="sideView==1">
+  <img src="assets/imgs/small_cancel.png" width="17px" style="margin-right: 14px;vertical-align: top;" (click)="sideBarView(0)">
+  <img src="assets/theme/white/main_logo.png" width="110px">
+  <div style="margin-top: 29px;margin-bottom:18px;font-size: 20px;">
+    18
   </div>
-  <div (click)="filter('광고서비스 디자인')">
-      광고서비스 디자인
-  </div>
-  <div (click)="filter('재능')">
-    재능
-  </div>
-</div>
-<div class="main">
-  <div *ngFor="let data of datas| myfilter:filterargs">
-    <div (click)="next()" class="frame" >
-      <img [src]="data.img" class="frameImg">
-      <div>{{data.name}}</div>
-      <div>{{data.title}}</div>
-      <div>{{data.confirm}}</div>
-      <div>{{data.kind}}</div>
+  <div class="filter" *ngFor="let one of category;let indexing = index" (click)="go(one.item_category_no);active = one.item_category_no;load(one.item_category_no)">
+    <u style="border-bottom:1px solid #000;text-decoration: none;" *ngIf="active == one.item_category_no">
+      {{one.content}}<br style="line-height:20px;">
+      {{one.content_en}}
+    </u>
+    <div *ngIf="active != one.item_category_no">
+      <u class="ooo">
+        {{one.content}}<br style="line-height:20px;">
+        {{one.content_en}}
+      </u>
     </div>
-  </div>   
+  </div>
 </div>
+
+<div class="logoFrameSmall">
+  <div style="float: left;">
+    <img src="assets/imgs/tab.png" style="margin-left: 32px;width: 32px;" (click)="sideBarView(1)">
+    <img src="assets/theme/white/right_logo.png" class="rightlogo2" routerLink="/">
+  </div>
+</div>
+<!--<form class="search_formSmall">-->
+  <div class="search_frameSmall">
+    <img src="/assets/imgs/degree_search.png" style="width: 15px;vertical-align: baseline;">
+    <input [(ngModel)]="txt" name="search" class="search">
+    <img src="assets/imgs/degree_arrow.png" (click)="searchItem(txt)" style="width: 17px;float: right;">
+  </div>
+<!--</form>-->
+<div><img src="assets/theme/white/right_logo.png" class="rightlogo"></div>
+
+<div class="sideFilter">
+    <div class="sideFilterIn">
+      <div class="logoFrame">
+        <img src="assets/theme/white/main_logo.png" class="logo" routerLink="/">
+      </div>
+      <div class="year">{{year}}</div>
+      <div class="filter" *ngFor="let one of category;let indexing = index" (click)="go(one.item_category_no);active = one.item_category_no;load(one.item_category_no)">
+          <u style="border-bottom:1px solid #000;text-decoration: none;" *ngIf="active == one.item_category_no">
+            {{one.content}}<br style="line-height:20px;">
+            {{one.content_en}}
+          </u>
+          <div *ngIf="active != one.item_category_no">
+            <u class="ooo">
+               {{one.content}}<br style="line-height:20px;">
+              {{one.content_en}}
+            </u>
+          </div>
+      </div>
+      <form>
+        <div class="search_frame">
+          <img src="/assets/imgs/degree_search.png" style="width: 15px;vertical-align: baseline;">
+          <input [(ngModel)]="txt" name="search" class="search">
+          <img src="assets/imgs/degree_arrow.png" (click)="searchItem(txt)" style="width: 17px;float:right;">
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="mainFrame">
+    <div class="mainCont">
+      <div *ngFor="let con of category;">
+        <div class="filterTitle" *ngIf="con.item_category_no == active">
+          <div>
+            {{con.content}}
+          </div>
+          <div>
+            {{con.content_en}}
+          </div>
+        </div>
+
+      </div>
+      <div class="dataScroll">
+        <div *ngFor="let data of datas| myfilter:filterargs;let index=index"  [@enterAnimation]>
+          <div (click)="next(data.item_no);view=1" class="frame" (mouseover)="hoveredIndex=index;">
+            <img [src]="link+'/img/t-'+data.item_no+'.png'" class="img"
+                 (mouseover)="hoveredIndex=index;">
+            <div *ngIf="hoveredIndex== index" class="op"
+                 (mouseout) = "hoveredIndex = -1;">
+              <!--<div>{{data.title}}</div>-->
+              <div class="title">{{data.title}}</div>
+              <div class="name">
+                <span *ngFor="let designer of data.designer">{{designer.name}} </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="rightS" *ngIf="datas.length!=0">
+
+  </div>
+  
